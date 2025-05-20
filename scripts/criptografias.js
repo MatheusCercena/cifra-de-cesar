@@ -19,8 +19,10 @@ function criptografar(mensagem, chave) {
                 for (let letras of grupos) {
                     let index = letras.indexOf(caractere);
                     if (index !== -1) {
-                        let novoIndex = mod(index + chave, 5);
+                        let novoIndex = (index + chave) % 5;
+                        novoIndex = (novoIndex + 5) % 5;
                         resultado += letras[novoIndex];
+                        break; // 👈 evita continuar iterando sem necessidade
                     }
                 }
             }
