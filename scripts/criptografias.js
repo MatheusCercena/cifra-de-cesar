@@ -14,17 +14,20 @@ function criptografar(mensagem, chave) {
             resultado += letra_deslocada;
 
 } else if (caractere.match(/[áéíóúÁÉÍÓÚâêîôûÂÊÎÔÛ]/)) {
-    let grupos = {
-        "áéíóúÁÉÍÓÚ": 5,
-        "âêîôûÂÊÎÔÛ": 5
+    const grupos = {
+        minusculas1: "áéíóú",
+        maiusculas1: "ÁÉÍÓÚ",
+        minusculas2: "âêîôû",
+        maiusculas2: "ÂÊÎÔÛ"
     };
 
-    for (let acentuadas in grupos) {
-        let index = acentuadas.indexOf(caractere);
+    for (let grupo in grupos) {
+        let letras = grupos[grupo];
+        let index = letras.indexOf(caractere);
         if (index !== -1) {
-            let baseIndex = ((index % 5 + chave) % 5 + 5) % 5;
-            let deslocado = acentuadas[index < 5 ? baseIndex : baseIndex + 5];
-            resultado += deslocado;
+            let novoIndex = (index + chave) % 5;
+            novoIndex = (novoIndex + 5) % 5; // garante índice positivo
+            resultado += letras[novoIndex];
             break;
         }
     }
