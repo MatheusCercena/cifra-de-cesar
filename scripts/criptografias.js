@@ -13,24 +13,19 @@ function criptografar(mensagem, chave) {
             let letra_deslocada = String.fromCharCode(base + deslocamento);
             resultado += letra_deslocada;
 
-} else if (caractere.match(/[áéíóúÁÉÍÓÚâêîôûÂÊÎÔÛ]/)) {
-    const grupos = [
-        "áéíóú",  // 0: minúsculas agudas
-        "ÁÉÍÓÚ",  // 1: maiúsculas agudas
-        "âêîôû",  // 2: minúsculas circunflexas
-        "ÂÊÎÔÛ"   // 3: maiúsculas circunflexas
-    ];
+        } else if (caractere.match(/[áéíóúÁÉÍÓÚâêîôûÂÊÎÔÛ]/)) {
+            const grupos = ["áéíóú", "ÁÉÍÓÚ", "âêîôû", "ÂÊÎÔÛ"];
 
-    for (let letras of grupos) {
-        let index = letras.indexOf(caractere);
-        if (index !== -1) {
-            let novoIndex = (index + chave) % 5;
-            novoIndex = (novoIndex + 5) % 5; // garante índice positivo
-            resultado += letras[novoIndex];
-            break;
+            for (let letras of grupos) {
+                let index = letras.indexOf(caractere);
+                if (index !== -1) {
+                    let novoIndex = (index + chave) % 5;
+                    novoIndex = (novoIndex + 5) % 5;
+                    resultado += letras[novoIndex];
+                    break;
+                }
+            }
         }
-    }
-}
         else { 
             resultado += caractere;
         }
