@@ -13,19 +13,22 @@ function criptografar(mensagem, chave) {
             let letra_deslocada = String.fromCharCode(base + deslocamento);
             resultado += letra_deslocada;
 
-            } else if (caractere.match(/[áéíóúÁÉÍÓÚâêîôûÂÊÎÔÛ]/)) {
-                let grupos = ["áéíóú","ÁÉÍÓÚ","âêîôû","ÂÊÎÔÛ"];
+} else if (caractere.match(/[áéíóúÁÉÍÓÚâêîôûÂÊÎÔÛ]/)) {
+    let grupos = {
+        "áéíóúÁÉÍÓÚ": 5,
+        "âêîôûÂÊÎÔÛ": 5
+    };
 
-                for (let letras of grupos) {
-                    let index = letras.indexOf(caractere);
-                    if (index !== -1) {
-                        let novoIndex = (index + chave) % 5;
-                        novoIndex = (novoIndex + 5) % 5;
-                        resultado += letras[novoIndex];
-                        break; // 👈 evita continuar iterando sem necessidade
-                    }
-                }
-            }
+    for (let acentuadas in grupos) {
+        let index = acentuadas.indexOf(caractere);
+        if (index !== -1) {
+            let baseIndex = ((index % 5 + chave) % 5 + 5) % 5;
+            let deslocado = acentuadas[index < 5 ? baseIndex : baseIndex + 5];
+            resultado += deslocado;
+            break;
+        }
+    }
+}
         else { 
             resultado += caractere;
         }
