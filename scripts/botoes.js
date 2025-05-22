@@ -1,9 +1,9 @@
-//BOTAO CRIPTOGRAFAR
+//Botão criptografar
 botao_criptografar.addEventListener("click", function(){
     let mensagem = document.getElementById("mensagem").value 
     let chave = document.getElementById("chave").value 
     if(mensagem == ""){
-        window.alert("[ERRO] Por favor digite uma mensagem!")
+        window.alert("Por favor digite uma mensagem!")
     } else{
         let mensagem_criptografada = criptografar(mensagem, chave)
         resultado.querySelector("h2").innerText = "🔒 Mensagem Criptografada:"
@@ -14,12 +14,12 @@ botao_criptografar.addEventListener("click", function(){
     }
 })
 
-//BOTAO DESCRIPTOGRAFAR
+//Botao descriptografar
 botao_descriptografar.addEventListener("click", function(){
     let mensagem = document.getElementById("mensagem").value 
     let chave = document.getElementById("chave").value 
     if(mensagem == ""){
-        window.alert("[ERRO] Por favor digite uma mensagem!")
+        window.alert("Por favor digite uma mensagem!")
     } else{
         let mensagem_descriptografada = descriptografar(mensagem, chave)
         resultado.querySelector("h2").innerText = "🔓 Mensagem Descriptografada:"
@@ -30,12 +30,12 @@ botao_descriptografar.addEventListener("click", function(){
     }
 })
 
-//BOTAO NOVA MENSAGEM (RECARREGAR)
+//Botão nova mensagem
 botao_reload.addEventListener("click", function(){
     location.reload();
 })
 
-//BOTAO COPIAR
+//Botão copiar
 botao_copiar.addEventListener("click", function() {
     var temporario = document.createElement("textarea");
     temporario.value = resultado.querySelector("p").innerText;

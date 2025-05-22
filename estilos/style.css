@@ -19,7 +19,7 @@ body{
     background-image: url(../imagens/fundo.jpg);
 }
 
-main{
+main {
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
@@ -45,25 +45,25 @@ h2 {
     font-family: "Metal Mania", system-ui;
 }
 
-textarea#mensagem{
+textarea#mensagem {
     background-color: lightgreen;
     resize: none;
 }
 
-input#chave{
+input#chave {
     width: 50px;
     padding: 5px;
     background-color: lightgreen;
 }
 
-section#secao-botao{
+section#secao-botao {
     width: 100%;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
 }
 
-button#criptografar, button#descriptografar{
+button#criptografar, button#descriptografar {
     padding: 15px;
     border-radius: 15px;
     margin-right: 10px;
@@ -74,12 +74,15 @@ button#criptografar, button#descriptografar{
     font-family: "Tagesschrift", system-ui;
 }
 
-button#criptografar:hover, button#descriptografar:hover, button#recarregar:hover, button#copiar:hover{
+button#criptografar:hover,
+button#descriptografar:hover, 
+button#recarregar:hover,
+button#copiar:hover {
     background-color: black;
     color: orange;
 }
 
-div#resultado{
+div#resultado {
     background-color: #ccc;
     width: 387px;
     border-radius: 20px;
@@ -90,7 +93,7 @@ div#resultado{
     opacity: 0;
 }
 
-div#resultado > p{
+div#resultado > p {
     overflow-wrap: break-word;
 }
 
@@ -104,7 +107,7 @@ button#recarregar, button#copiar {
     font-family: "Tagesschrift", system-ui;
 }
 
-div#resultado.ativar{
+div#resultado.ativar {
     transform: translateY(0);
     opacity: 1;
 }
